@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Login</title>
+</head>
+<body>
+    
+</body>
+
+<div>
+
+    <input type="text" id="email" placeholder="Email">
+    <input type="password" id="senha" placeholder="Senha">
+    <input type="submit" value="Login" onclick="validaLogin()">
+    <p id="acesso"></p>
+
+</div>
+
+</div>
+<script>
+
+class ErroLogin extends Error {
+
+constructor(name, message){
+
+    super(message)
+
+    this.name = name
+}
+}
+
+
+function validaLogin(){
+
+    try{
+    let email = document.getElementById("email").value
+    let senha = document.getElementById("senha").value
+    let emailSistema = "vucenick@email.com"
+    let SenhaDoSistema = "08388729"
+
+    
+
+    if (senha == SenhaDoSistema && email == emailSistema) {
+
+document.getElementById("acesso").innerHTML = "Acesso Autorizado"       
+
+
+    } else {
+
+        let erroLogin = new ErroLogin("ErroLogin", "Credenciais do usuario estão incorretas")
+
+        throw erroLogin
+    }
+
+} catch(erro){
+
+    
+document.getElementById("acesso").innerHTML = erro.message
+
+
+}
+
+}
+
+</script>
+</html>
